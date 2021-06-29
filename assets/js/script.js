@@ -5,6 +5,7 @@ var questionPage = document.querySelector("#question-page");
 var questionDisplay = document.querySelector("#question");
 var choicesDisplay = document.querySelector("#choices");
 var feedbackDisplay = document.querySelector("#feedback");
+var currentQuestion = 0;
 
 var endPage = document.querySelector("#end-page");
 var initialButton = document.querySelector("initial-button");
@@ -67,26 +68,35 @@ endPage.style.display = 'none';
 
 
 startButton.addEventListener('click', function () {
+    loadQuestion();
     startPage.style.display = 'none';
     questionPage.style.display = 'block';
 });
 
 
-questionDisplay.textContent = questions[0].question;
+function loadQuestion() {
+    questionDisplay.textContent = questions[currentQuestion].question;
+    choicesDisplay.innerHTML = "";
 
-for (i=0; i < questions[0].choices.length; i++) {
-    var listItem = document.createElement("li");
-    choicesDisplay.appendChild(listItem);
-    listItem.textContent = questions[0].choices[i];
+    for (i = 0; i < questions[currentQuestion].choices.length; i++) {
+        var listItem = document.createElement("li");
+        choicesDisplay.appendChild(listItem);
+        listItem.textContent = questions[currentQuestion].choices[i];
+    }
 }
 
-
-choicesDisplay.addEventListener('click', function(event) {
+choicesDisplay.addEventListener('click', function (event) {
     var userChoice = event.target;
-    if (userChoice.textContent === questions[0].correctAnswer) {
+    if (userChoice.textContent === questions[currentQuestion].correctAnswer) {
         feedbackDisplay.textContent = "Correct!";
     }
     else {
         feedbackDisplay.textContent = "Wrong";
     }
+
+    setTimeout(function(){
+        feedbackDisplay.textContent = "";
+        currentQuestion++;
+        loadQuestion();
+    }, 1000)
 });
