@@ -75,7 +75,18 @@ startButton.addEventListener('click', function () {
 questionDisplay.textContent = questions[0].question;
 
 for (i=0; i < questions[0].choices.length; i++) {
-    var listItems = document.createElement("li");
-    choicesDisplay.appendChild(listItems);
-    listItems.textContent = questions[0].choices[i];
+    var listItem = document.createElement("li");
+    choicesDisplay.appendChild(listItem);
+    listItem.textContent = questions[0].choices[i];
 }
+
+
+choicesDisplay.addEventListener('click', function(event) {
+    var userChoice = event.target;
+    if (userChoice.textContent === questions[0].correctAnswer) {
+        feedbackDisplay.textContent = "Correct!";
+    }
+    else {
+        feedbackDisplay.textContent = "Wrong";
+    }
+});
