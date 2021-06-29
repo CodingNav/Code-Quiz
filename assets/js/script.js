@@ -12,6 +12,7 @@ var endPage = document.querySelector("#end-page");
 var scoreDisplay = document.querySelector("#score");
 var initialButton = document.querySelector("initial-button");
 
+var timer;
 var currentQuestion = 0;
 var currentTime = 75; 
 
@@ -79,13 +80,14 @@ startButton.addEventListener('click', function () {
 
     timeDisplay.textContent = currentTime;
 
-    setInterval(function () {
+    timer = setInterval(function () {
         currentTime--;
         timeDisplay.textContent = currentTime;
 
         if(currentTime <= 0) {
             questionPage.style.display = 'none';
             endPage.style.display = 'block';
+            clearInterval(timer);
         }
     }, 1000)
 });
@@ -119,6 +121,7 @@ choicesDisplay.addEventListener('click', function (event) {
         if (currentQuestion == questions.length) {
             questionPage.style.display = 'none';
             endPage.style.display = 'block';
+            clearInterval(timer);
         }
         else {
             loadQuestion();
