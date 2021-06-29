@@ -1,3 +1,4 @@
+var timeDisplay = document.querySelector("#time")
 var startPage = document.querySelector("#start-page");
 var startButton = document.querySelector("#start-button");
 
@@ -5,10 +6,14 @@ var questionPage = document.querySelector("#question-page");
 var questionDisplay = document.querySelector("#question");
 var choicesDisplay = document.querySelector("#choices");
 var feedbackDisplay = document.querySelector("#feedback");
-var currentQuestion = 0;
+
 
 var endPage = document.querySelector("#end-page");
+var scoreDisplay = document.querySelector("#score");
 var initialButton = document.querySelector("initial-button");
+
+var currentQuestion = 0;
+var currentTime = 75; 
 
 var questions = [
     {
@@ -71,6 +76,18 @@ startButton.addEventListener('click', function () {
     loadQuestion();
     startPage.style.display = 'none';
     questionPage.style.display = 'block';
+
+    timeDisplay.textContent = currentTime;
+
+    setInterval(function () {
+        currentTime--;
+        timeDisplay.textContent = currentTime;
+
+        if(currentTime <= 0) {
+            questionPage.style.display = 'none';
+            endPage.style.display = 'block';
+        }
+    }, 1000)
 });
 
 
@@ -92,6 +109,7 @@ choicesDisplay.addEventListener('click', function (event) {
     }
     else {
         feedbackDisplay.textContent = "Wrong";
+        currentTime -= 10; 
     }
 
     setTimeout(function () {
@@ -107,4 +125,3 @@ choicesDisplay.addEventListener('click', function (event) {
         }
     }, 1000)
 });
-
