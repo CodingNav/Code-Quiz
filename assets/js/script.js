@@ -94,9 +94,17 @@ choicesDisplay.addEventListener('click', function (event) {
         feedbackDisplay.textContent = "Wrong";
     }
 
-    setTimeout(function(){
+    setTimeout(function () {
         feedbackDisplay.textContent = "";
         currentQuestion++;
-        loadQuestion();
+
+        if (currentQuestion == questions.length) {
+            questionPage.style.display = 'none';
+            endPage.style.display = 'block';
+        }
+        else {
+            loadQuestion();
+        }
     }, 1000)
 });
+
