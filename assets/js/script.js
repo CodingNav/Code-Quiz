@@ -1,6 +1,11 @@
 var startPage = document.querySelector("#start-page");
 var startButton = document.querySelector("#start-button");
+
 var questionPage = document.querySelector("#question-page");
+var questionDisplay = document.querySelector("#question");
+var choicesDisplay = document.querySelector("#choices");
+var feedbackDisplay = document.querySelector("#feedback");
+
 var endPage = document.querySelector("#end-page");
 var initialButton = document.querySelector("initial-button");
 
@@ -67,6 +72,10 @@ startButton.addEventListener('click', function () {
 });
 
 
+questionDisplay.textContent = questions[0].question;
 
-
-
+for (i=0; i < questions[0].choices.length; i++) {
+    var listItems = document.createElement("li");
+    choicesDisplay.appendChild(listItems);
+    listItems.textContent = questions[0].choices[i];
+}
