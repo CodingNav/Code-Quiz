@@ -11,54 +11,54 @@ var initialButton = document.querySelector("initial-button");
 
 var questions = [
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which contextual class is used to create an orange text color?",
+        choices: [".text-warning", ".txt-warning", ".bg-warning", ".txt-orange"],
+        correctAnswer: ".text-warning"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "The Bootstrap grid system is based on how many columns?",
+        choices: ["12", "3", "9", "6"],
+        correctAnswer: "12"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which class adds zebra-stripes to a table?",
+        choices: [".table-zebra", ".table-bordered", ".table-striped", ".even and .odd"],
+        correctAnswer: ".table-striped"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which class shapes an image to a circle?",
+        choices: [".rounded-circle", ".img-circle", ".img-round", ".img-rounded"],
+        correctAnswer: ".rounded-circle"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which button class is used to create a large button?",
+        choices: [".btn-lg", "btn-l", "btn-xl", "btn-large"],
+        correctAnswer: ".btn-lg"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which class is used to create a badge?",
+        choices: [".badge-label", ".badge", ".badge-item", ".label-badge"],
+        correctAnswer: ".badge"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which class adds a heading to a card?",
+        choices: [".card-head", ".card-heading", ".card-header", ".card-footer"],
+        correctAnswer: ".card-header"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which class indicates uppercased text?",
+        choices: [".text-uppercase", ".uppercase", ".text-capitalize", ".ucase"],
+        correctAnswer: ".text-uppercase"
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "A standard navigation bar is created with:",
+        choices: ['<nav class="nav navbar">', '<nav class="navbar navbar-default">', '<nav class="navbar navbar-expand-sm">', '<nav class="navigationbar navbar-default">'],
+        correctAnswer: '<nav class="navbar navbar-expand-sm">'
     },
     {
-        question: "What?",
-        choices: ["A", "B", "C", "D"],
-        correctAnswer: "B"
+        question: "Which component is used to cycle through elements, like a slideshow?",
+        choices: ["Slideshow", "Orbit", "Scrollspy", "Carousel"],
+        correctAnswer: "Carousel"
     },
 ]
 
