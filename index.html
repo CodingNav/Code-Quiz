@@ -8,26 +8,26 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
 </head>
 <body>
-    <section>
+    <section id="start-page">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit.
             Keep in mind that incorrect answers will penalize your score/time by ten seconds!
         </p>
-        <button>Start Quiz</button>
+        <button id="start-button">Start Quiz</button>
     </section>
 
-    <section>
+    <section id="question-page">
         <h1 id="question"></h1>
-        <ul></ul>
+        <ul id="answers"></ul>
         <p id="feedback"></p>
     </section>
 
-    <form>
+    <form id="end-page">
         <h1>All Done</h1>
         <p>Your final score is</p>
         <label for="initials">Enter initials:</label>
         <input type="text" name="initials"><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" id="initial-submit" value="Submit">
       </form>
       
     
