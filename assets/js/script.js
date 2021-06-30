@@ -49,7 +49,7 @@ var questions = [
     },
     {
         question: "Which button class is used to create a large button?",
-        choices: [".btn-lg", "btn-l", "btn-xl", "btn-large"],
+        choices: [".btn-lg", ".btn-l", ".btn-xl", ".btn-large"],
         correctAnswer: ".btn-lg"
     },
     {
@@ -79,10 +79,13 @@ var questions = [
     },
 ];
 
+
 timeElement.style.display = 'none';
 highscorePage.style.display = 'none';
 questionPage.style.display = 'none';
 endPage.style.display = 'none';
+
+
 
 function loadQuestion() {
     questionDisplay.textContent = questions[currentQuestion].question;
@@ -119,6 +122,8 @@ function loadHighscores() {
         scoreData.textContent = user.score;
     }
 }
+
+
 
 startButton.addEventListener('click', function () {
     currentQuestion = 0;
