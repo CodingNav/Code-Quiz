@@ -99,7 +99,9 @@ function loadQuestion() {
 }
 
 function loadHighscores() {
-    highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
+    if (localStorage.getItem("highscoreData") != null) {
+        highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
+    }
 
     highscoreBoard.sort(function(user1, user2){
         return user2.score - user1.score;
@@ -210,11 +212,18 @@ initialSubmit.addEventListener('click', function (event) {
         score: currentTime
     };
 
-    // Parse converts from string to an array 
-    highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
+    if (localStorage.getItem("highscoreData") != null) {
+        // Parse converts from string to an array 
+        highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
+    }
     highscoreBoard.push(userData);
     // Stringify converts from array to a string
     localStorage.setItem("highscoreData", JSON.stringify(highscoreBoard));
     
     loadHighscores();
+});
+
+clearButton.addEventListener('click', function () {
+    highscoreTable.innerHTML = ""; 
+    localStorage.removeItem("highscoreData");
 });
