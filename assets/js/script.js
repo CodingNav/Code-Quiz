@@ -25,6 +25,7 @@ var timer;
 var currentQuestion = 0;
 var currentTime = 75; 
 
+var highscoreBoard = [];
 var questions = [
     {
         question: "Which contextual class is used to create an orange text color?",
@@ -78,8 +79,7 @@ var questions = [
     },
 ];
 
-var highscoreBoard = [];
-
+timeElement.style.display = 'none';
 highscorePage.style.display = 'none';
 questionPage.style.display = 'none';
 endPage.style.display = 'none';
@@ -89,6 +89,7 @@ startButton.addEventListener('click', function () {
     loadQuestion();
     startPage.style.display = 'none';
     viewHighscore.style.display = 'none';
+    timeElement.style.display = 'block';
     questionPage.style.display = 'block';
 
     timeDisplay.textContent = currentTime;
@@ -121,10 +122,11 @@ function loadQuestion() {
 }
 
 choicesDisplay.addEventListener('click', function (event) {
-    // console.log('click');
-    // if (feedbackDisplay.textContent != "") {
-    //     return;
-    // }
+    
+    if (feedbackDisplay.textContent != "") {
+        return;
+    }
+    
     var userChoice = event.target;
     if (userChoice.textContent === questions[currentQuestion].correctAnswer) {
         feedbackDisplay.textContent = "Correct!";
