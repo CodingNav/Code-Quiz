@@ -82,13 +82,16 @@ startButton.addEventListener('click', function () {
 
     timer = setInterval(function () {
         currentTime--;
-        timeDisplay.textContent = currentTime;
-
+       
         if(currentTime <= 0) {
             questionPage.style.display = 'none';
             endPage.style.display = 'block';
             clearInterval(timer);
+            currentTime = 0;
+            scoreDisplay.textContent = currentTime;
         }
+        
+        timeDisplay.textContent = currentTime;
     }, 1000)
 });
 
@@ -122,9 +125,11 @@ choicesDisplay.addEventListener('click', function (event) {
             questionPage.style.display = 'none';
             endPage.style.display = 'block';
             clearInterval(timer);
+            scoreDisplay.textContent = currentTime;
         }
         else {
             loadQuestion();
         }
     }, 1000)
 });
+
