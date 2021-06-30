@@ -8,7 +8,9 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
 </head>
 <body>
-    <h5>Time: <span id="time"></span></h5>
+    <h2 id="time-element">Time: <span id="time"></span></h2>
+    <h2 id="view-highscore">View Highscores</h2>
+
     <section id="start-page">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit.
@@ -27,9 +29,23 @@
         <h1>All Done</h1>
         <p>Your final score is <span id="score"></span></p>
         <label for="initials">Enter initials:</label>
-        <input type="text" name="initials"><br><br>
+        <input type="text" id="initials" name="initials"><br><br>
         <input type="submit" id="initial-submit" value="Submit">
-      </form>
+        <button>Start Over</button>
+    </form>
+
+    <section id="highscore-page">
+        <h1>Highscores</h1>
+        <table id="highscore-table">
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </table>
+        <button id="main-button">Main Page</button>
+        <button id="clear-button">Clear Highscores</button>
+    </section>
       
     
     <script src="assets/js/script.js"></script>

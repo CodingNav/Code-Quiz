@@ -1,4 +1,6 @@
-var timeDisplay = document.querySelector("#time")
+var timeElement = document.querySelector("#time-element");
+var timeDisplay = document.querySelector("#time");
+
 var startPage = document.querySelector("#start-page");
 var startButton = document.querySelector("#start-button");
 
@@ -10,7 +12,14 @@ var feedbackDisplay = document.querySelector("#feedback");
 
 var endPage = document.querySelector("#end-page");
 var scoreDisplay = document.querySelector("#score");
-var initialButton = document.querySelector("initial-button");
+var userInitials = document.querySelector("#initials");
+var initialSubmit = document.querySelector("#initial-submit");
+
+var highscorePage = document.querySelector("#highscore-page");
+var viewHighscore = document.querySelector("#view-highscore");
+var highscoreTable = document.querySelector("#highscore-table");
+var clearButton = document.querySelector("#clear-button");
+var mainButton = document.querySelector("#main-button");
 
 var timer;
 var currentQuestion = 0;
@@ -67,8 +76,11 @@ var questions = [
         choices: ["Slideshow", "Orbit", "Scrollspy", "Carousel"],
         correctAnswer: "Carousel"
     },
-]
+];
 
+var highscoreBoard = [];
+
+highscorePage.style.display = 'none';
 questionPage.style.display = 'none';
 endPage.style.display = 'none';
 
@@ -76,6 +88,7 @@ endPage.style.display = 'none';
 startButton.addEventListener('click', function () {
     loadQuestion();
     startPage.style.display = 'none';
+    viewHighscore.style.display = 'none';
     questionPage.style.display = 'block';
 
     timeDisplay.textContent = currentTime;
@@ -108,6 +121,10 @@ function loadQuestion() {
 }
 
 choicesDisplay.addEventListener('click', function (event) {
+    // console.log('click');
+    // if (feedbackDisplay.textContent != "") {
+    //     return;
+    // }
     var userChoice = event.target;
     if (userChoice.textContent === questions[currentQuestion].correctAnswer) {
         feedbackDisplay.textContent = "Correct!";
@@ -132,4 +149,20 @@ choicesDisplay.addEventListener('click', function (event) {
         }
     }, 1000)
 });
+
+
+viewHighscore.addEventListener('click', function () {
+    highscorePage.style.display = 'block';
+    viewHighscore.style.display = 'none';
+    timeElement.style.display = 'none';
+    startPage.style.display = 'none';
+    endPage.style.display = 'none';
+});
+
+mainButton.addEventListener('click', function(){
+    highscorePage.style.display = 'none';
+    viewHighscore.style.display = 'block';
+    startPage.style.display = 'block';
+});
+
 
