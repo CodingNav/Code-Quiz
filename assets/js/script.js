@@ -84,6 +84,41 @@ highscorePage.style.display = 'none';
 questionPage.style.display = 'none';
 endPage.style.display = 'none';
 
+function loadQuestion() {
+    questionDisplay.textContent = questions[currentQuestion].question;
+    choicesDisplay.innerHTML = "";
+
+    for (i = 0; i < questions[currentQuestion].choices.length; i++) {
+        var listItem = document.createElement("li");
+        choicesDisplay.appendChild(listItem);
+        listItem.textContent = questions[currentQuestion].choices[i];
+    }
+}
+
+function loadHighscores() {
+    highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
+
+    highscoreBoard.sort(function(user1, user2){
+        return user2.score - user1.score;
+    });
+
+    highscoreTable.innerHTML = ""; 
+    for(i = 0; i < highscoreBoard.length; i++) {
+        var user = highscoreBoard[i];
+        var tableRow = document.createElement("tr");
+        var rankData = document.createElement("td");
+        var nameData = document.createElement("td");
+        var scoreData = document.createElement("td");
+        highscoreTable.appendChild(tableRow);
+        tableRow.appendChild(rankData);
+        tableRow.appendChild(nameData);
+        tableRow.appendChild(scoreData);
+    
+        rankData.textContent = i+1;
+        nameData.textContent = user.name;
+        scoreData.textContent = user.score;
+    }
+}
 
 startButton.addEventListener('click', function () {
     currentQuestion = 0;
@@ -110,18 +145,6 @@ startButton.addEventListener('click', function () {
         timeDisplay.textContent = currentTime;
     }, 1000)
 });
-
-
-function loadQuestion() {
-    questionDisplay.textContent = questions[currentQuestion].question;
-    choicesDisplay.innerHTML = "";
-
-    for (i = 0; i < questions[currentQuestion].choices.length; i++) {
-        var listItem = document.createElement("li");
-        choicesDisplay.appendChild(listItem);
-        listItem.textContent = questions[currentQuestion].choices[i];
-    }
-}
 
 choicesDisplay.addEventListener('click', function (event) {
     
@@ -154,7 +177,6 @@ choicesDisplay.addEventListener('click', function (event) {
     }, 1000)
 });
 
-
 viewHighscore.addEventListener('click', function () {
     highscorePage.style.display = 'block';
     viewHighscore.style.display = 'none';
@@ -162,29 +184,7 @@ viewHighscore.addEventListener('click', function () {
     startPage.style.display = 'none';
     endPage.style.display = 'none';
 
-    // Parse converts from string to an array 
-    highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
-
-    highscoreBoard.sort(function(user1, user2){
-        return user2.score - user1.score;
-    });
-    
-    highscoreTable.innerHTML = ""; 
-    for(i = 0; i < highscoreBoard.length; i++) {
-        var user = highscoreBoard[i];
-        var tableRow = document.createElement("tr");
-        var rankData = document.createElement("td");
-        var nameData = document.createElement("td");
-        var scoreData = document.createElement("td");
-        highscoreTable.appendChild(tableRow);
-        tableRow.appendChild(rankData);
-        tableRow.appendChild(nameData);
-        tableRow.appendChild(scoreData);
-    
-        rankData.textContent = i+1;
-        nameData.textContent = user.name;
-        scoreData.textContent = user.score;
-    }
+    loadHighscores();
 });
 
 mainButton.addEventListener('click', function(){
@@ -200,27 +200,16 @@ initialSubmit.addEventListener('click', function (event) {
     timeElement.style.display = 'none';
     endPage.style.display = 'none';
 
-    var tableRow = document.createElement("tr");
-    var rankData = document.createElement("td");
-    var nameData = document.createElement("td");
-    var scoreData = document.createElement("td");
-    highscoreTable.appendChild(tableRow);
-    tableRow.appendChild(rankData);
-    tableRow.appendChild(nameData);
-    tableRow.appendChild(scoreData);
-
-    rankData.textContent = 1;
-    nameData.textContent = userInitials.value;
-    scoreData.textContent = currentTime;
-
     var userData = {
-        rank: 1,
         name: userInitials.value,
         score: currentTime
     };
 
+    // Parse converts from string to an array 
+    highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
     highscoreBoard.push(userData);
     // Stringify converts from array to a string
     localStorage.setItem("highscoreData", JSON.stringify(highscoreBoard));
-
+    
+    loadHighscores();
 });
