@@ -86,6 +86,8 @@ endPage.style.display = 'none';
 
 
 startButton.addEventListener('click', function () {
+    currentQuestion = 0;
+    currentTime = 75;
     loadQuestion();
     startPage.style.display = 'none';
     viewHighscore.style.display = 'none';
@@ -159,6 +161,26 @@ viewHighscore.addEventListener('click', function () {
     timeElement.style.display = 'none';
     startPage.style.display = 'none';
     endPage.style.display = 'none';
+
+    // Parse converts from string to an array 
+    highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
+
+    highscoreTable.innerHTML = ""; 
+    for(i = 0; i < highscoreBoard.length; i++) {
+        var user = highscoreBoard[i];
+        var tableRow = document.createElement("tr");
+        var rankData = document.createElement("td");
+        var nameData = document.createElement("td");
+        var scoreData = document.createElement("td");
+        highscoreTable.appendChild(tableRow);
+        tableRow.appendChild(rankData);
+        tableRow.appendChild(nameData);
+        tableRow.appendChild(scoreData);
+    
+        rankData.textContent = i+1;
+        nameData.textContent = user.name;
+        scoreData.textContent = user.score;
+    }
 });
 
 mainButton.addEventListener('click', function(){
@@ -168,3 +190,33 @@ mainButton.addEventListener('click', function(){
 });
 
 
+initialSubmit.addEventListener('click', function (event) {
+    event.preventDefault();
+    highscorePage.style.display = 'block';
+    timeElement.style.display = 'none';
+    endPage.style.display = 'none';
+
+    var tableRow = document.createElement("tr");
+    var rankData = document.createElement("td");
+    var nameData = document.createElement("td");
+    var scoreData = document.createElement("td");
+    highscoreTable.appendChild(tableRow);
+    tableRow.appendChild(rankData);
+    tableRow.appendChild(nameData);
+    tableRow.appendChild(scoreData);
+
+    rankData.textContent = 1;
+    nameData.textContent = userInitials.value;
+    scoreData.textContent = currentTime;
+
+    var userData = {
+        rank: 1,
+        name: userInitials.value,
+        score: currentTime
+    };
+
+    highscoreBoard.push(userData);
+    // Stringify converts from array to a string
+    localStorage.setItem("highscoreData", JSON.stringify(highscoreBoard));
+
+});
