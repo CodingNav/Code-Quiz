@@ -165,6 +165,10 @@ viewHighscore.addEventListener('click', function () {
     // Parse converts from string to an array 
     highscoreBoard = JSON.parse(localStorage.getItem("highscoreData"));
 
+    highscoreBoard.sort(function(user1, user2){
+        return user2.score - user1.score;
+    });
+    
     highscoreTable.innerHTML = ""; 
     for(i = 0; i < highscoreBoard.length; i++) {
         var user = highscoreBoard[i];
