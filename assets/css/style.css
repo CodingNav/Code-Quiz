@@ -9,6 +9,7 @@
 /* WHOLE PAGE CSS */
 body {
     margin: 0;
+    background-color: #2f2b2b;
 }
 
 .container {
@@ -49,4 +50,39 @@ body {
     font-size: 22px;
     background-color: var(--green);
     color: var(--white);
+}
+
+/* QUESTION PAGE CSS */
+
+#question {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--white);
+    color: var(--pink);
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    width: 43%;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    background-color: var(--white);
+    color: var(--pink);
+}
+
+@media only screen and (max-width: 740px) {
+    li {
+        width: 100%;
+    }
 }
