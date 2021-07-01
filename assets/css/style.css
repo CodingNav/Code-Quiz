@@ -1,0 +1,48 @@
+:root {
+    --pink: #FE2F67;
+    --green: #0EFDAC; 
+    --dark-pink: #D32864;
+    --white: #fff;
+  }
+
+body {
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 60%;
+    margin: auto;
+    margin-top: 15vh;
+    padding: 120px 80px;
+    text-align: center;
+    font-family: sans-serif;
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+#view-highscore {
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    font-size: 25px;
+    color: var(--green);
+}
+
+#start-page h1 {
+    font-size: 55px;
+}
+
+#start-page p {
+    line-height: 25px;
+}
+
+#start-button {
+    margin: 13px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 22px;
+    background-color: var(--green);
+    color: var(--white);
+}
