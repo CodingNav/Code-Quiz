@@ -128,8 +128,21 @@ li:hover {
 }
 
 /* HIGHSCORE PAGE CSS */
+#highscore-page h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
 table {
     margin: auto;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid white;
+}
+
+th {
+    padding: 15px;
 }
 
 @media only screen and (max-width: 740px) {
