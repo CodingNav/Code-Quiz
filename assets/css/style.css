@@ -90,6 +90,10 @@ li {
     color: var(--pink);
 }
 
+li:hover {
+    background-color: #e8e8e8;
+}
+
 #feedback {
     font-size: 40px;
     font-weight: bold;
@@ -121,6 +125,11 @@ li {
 
 #initials:focus-visible {
     outline: var(--dark-pink) auto 1px;
+}
+
+/* HIGHSCORE PAGE CSS */
+table {
+    margin: auto;
 }
 
 @media only screen and (max-width: 740px) {
