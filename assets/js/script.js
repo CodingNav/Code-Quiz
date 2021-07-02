@@ -162,9 +162,11 @@ choicesDisplay.addEventListener('click', function (event) {
     var userChoice = event.target;
     if (userChoice.textContent === questions[currentQuestion].correctAnswer) {
         feedbackDisplay.textContent = "Correct!";
+        feedbackDisplay.style.color = "#99ffc7";
     }
     else {
-        feedbackDisplay.textContent = "Wrong";
+        feedbackDisplay.textContent = "Wrong!";
+        feedbackDisplay.style.color = "#ffd2d2";
         currentTime -= 10; 
     }
 
