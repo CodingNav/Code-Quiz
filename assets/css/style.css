@@ -25,6 +25,17 @@ body {
     color: var(--white);
 }
 
+.button {
+    margin: 13px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    background-color: var(--green);
+    color: var(--pink);
+}
+
 
 /* MAIN PAGE CSS */
 #view-highscore {
@@ -42,17 +53,6 @@ body {
 
 #start-page p {
     line-height: 25px;
-}
-
-#start-button {
-    margin: 13px;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 22px;
-    background-color: var(--green);
-    color: var(--pink);
 }
 
 /* QUESTION PAGE CSS */
@@ -88,6 +88,33 @@ li {
     font-size: 40px;
     font-weight: bold;
     margin: 50px;
+}
+
+/* END PAGE CSS */
+#end-page {
+    font-size: 25px;
+}
+
+#end-page h1 {
+    font-size: 40px;
+}
+
+#score {
+    padding: 2px 20px;
+    font-size: 35px;
+    font-weight: bold;
+    border: 2px solid var(--white);
+    color: var(--green);
+}
+
+#initials {
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#initials:focus-visible {
+    outline: var(--dark-pink) auto 1px;
 }
 
 @media only screen and (max-width: 740px) {

@@ -175,6 +175,7 @@ choicesDisplay.addEventListener('click', function (event) {
         currentQuestion++;
 
         if (currentQuestion == questions.length) {
+            timeElement.style.display = 'none';
             questionPage.style.display = 'none';
             endPage.style.display = 'block';
             clearInterval(timer);
