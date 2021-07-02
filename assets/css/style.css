@@ -36,6 +36,12 @@ body {
     color: var(--pink);
 }
 
+.button:hover {
+    background-color: var(--dark-pink);
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
 
 /* MAIN PAGE CSS */
 #view-highscore {
