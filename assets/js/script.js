@@ -227,6 +227,7 @@ initialSubmit.addEventListener('click', function (event) {
 });
 
 clearButton.addEventListener('click', function () {
-    highscoreTable.innerHTML = ""; 
+    highscoreBoard = []; 
+    highscoreTable.innerHTML = "";
     localStorage.removeItem("highscoreData");
 });
