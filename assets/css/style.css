@@ -1,12 +1,14 @@
 /* VARIABLES */
+
 :root {
     --pink: #FE2F67;
-    --green: #0EFDAC; 
+    --green: #0EFDAC;
     --dark-pink: #D32864;
     --white: #fff;
-  }
+}
 
 /* WHOLE PAGE CSS */
+
 body {
     margin: 0;
     background-color: #2f2b2b;
@@ -15,7 +17,7 @@ body {
 .container {
     position: relative;
     width: 60%;
-    height: 42vh;
+    min-height: 42vh;
     margin: auto;
     margin-top: 15vh;
     padding: 120px 80px;
@@ -42,8 +44,8 @@ body {
     border: 2px solid var(--green);
 }
 
-
 /* MAIN PAGE CSS */
+
 #view-highscore {
     position: absolute;
     top: 5px;
@@ -69,6 +71,7 @@ body {
 }
 
 /* QUESTION PAGE CSS */
+
 #question {
     margin: 0;
     padding: 20px;
@@ -108,6 +111,7 @@ li:hover {
 }
 
 /* END PAGE CSS */
+
 #end-page {
     font-size: 25px;
 }
@@ -135,6 +139,7 @@ li:hover {
 }
 
 /* HIGHSCORE PAGE CSS */
+
 #highscore-page h1 {
     margin: 0;
     font-size: 40px;
@@ -152,8 +157,30 @@ th {
     padding: 15px;
 }
 
+/* MEDIUM SIZE DEVICES CSS */
 @media only screen and (max-width: 740px) {
     li {
         width: 100%;
+    }
+}
+
+/* SMALL SIZE DEVICES CSS */
+@media only screen and (max-width: 627px) {
+    body {
+        background-color: var(--pink);
+    }
+    .container {
+        margin-top: 5vh;
+        ;
+    }
+    #start-page p {
+        width: 100%;
+    }
+}
+
+/* XSMALL SIZE DEVICES CSS */
+@media only screen and (max-width: 320px) {
+    #start-page h1 {
+        font-size: 40px;
     }
 }
